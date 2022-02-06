@@ -16,11 +16,16 @@ const ThemeContextProvider = (props) => {
         bg: '#555'
     });
 
+    const toogleTheme = () => {
+        setIsLightTheme(prev => !prev);
+    };
+
     return (
         <ThemeContext.Provider value={{
             isLightTheme, setIsLightTheme,
             lightTheme, setLightTheme,
-            darkTheme, setDarkTheme
+            darkTheme, setDarkTheme,
+            toogleTheme
         }}>
 
             {props.children}
