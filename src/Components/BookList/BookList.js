@@ -1,15 +1,15 @@
 import React, {useContext} from 'react';
+import { AuthContext } from '../../Contexts/AuthContext';
 import { ThemeContext } from '../../Contexts/ThemeContext';
 
 const BookList = () => {
     const allContext = useContext(ThemeContext);
-    console.log(allContext);
+    const authContext = useContext(AuthContext);
+
+    console.log('AuthContext: ', authContext);
 
     const {isLightTheme, darkTheme, lightTheme} = allContext;
-
-    console.log("isLightTheme: ", isLightTheme);
-    console.log("darkTheme: ", darkTheme);
-    console.log("lightTheme: ", lightTheme);
+    const {isAuthenticated, toogleAuth} = authContext;
 
     const theme = isLightTheme ? lightTheme : darkTheme;
 
@@ -19,13 +19,20 @@ const BookList = () => {
     }
 
     return (
-        <div className="book-list" style={myStyle}>
-            <ul>
-                <li style={{background: theme.ui}} >The way of kings</li>
-                <li style={{background: theme.ui}} >The name of the wind</li>
-                <li style={{background: theme.ui}} >The final empire</li>
-            </ul>
-        </div>
+        <>
+            {
+                isAuthenticated ? <>
+                    <div className="book-list" style={myStyle}>
+                        <ul>
+                            <li style={{background: theme.ui}} >The way of kings</li>
+                            <li style={{background: theme.ui}} >The name of the wind</li>
+                            <li style={{background: theme.ui}} >The final empire</li>
+                        </ul>
+                    </div>
+                    <button onClick={toogleAuth}>LogOut</button>
+                </> : <button onClick={toogleAuth}>Login</button>
+            }
+        </>
     );
 };
 
