@@ -4,6 +4,7 @@ import ThemeContextProvider from './Contexts/ThemeContext';
 import Navbar2 from './Components/Navbar/Navbar2';
 import ThemeToggle from './Components/ThemeToogle/ThemeToggle';
 import AuthContextProvider from './Contexts/AuthContext';
+import BooksContextProvider from './Contexts/BooksContext';
 
 function App() {
   return (
@@ -15,7 +16,11 @@ function App() {
             // Accessing context values by context.consumer
           <Navbar2 /> 
           */}
-          <BookList />
+
+          <BooksContextProvider>
+            <BookList />
+          </BooksContextProvider>
+          
           <ThemeToggle />
         </AuthContextProvider>
       </ThemeContextProvider>
