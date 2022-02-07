@@ -8,6 +8,7 @@ import BooksContextProvider from './Contexts/BooksContext';
 import MovieContextProvider from './Contexts/MovieContext';
 import Navbar3 from './Components/Navbar/Navbar3';
 import MovieList from './Components/MovieList/MovieList';
+import NewMovieForm from './Components/MovieForm/MovieForm';
 
 function App() {
   return (
@@ -27,9 +28,12 @@ function App() {
           <ThemeToggle />
 
           {/* for movie context and components */}
+          <br/><br/><br/>
+
           <MovieContextProvider>
             <Navbar3 />
             <MovieList />
+            <NewMovieForm />
           </MovieContextProvider>
         </AuthContextProvider>
       </ThemeContextProvider>
