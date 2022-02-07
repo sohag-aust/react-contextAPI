@@ -5,6 +5,8 @@ import Navbar2 from './Components/Navbar/Navbar2';
 import ThemeToggle from './Components/ThemeToogle/ThemeToggle';
 import AuthContextProvider from './Contexts/AuthContext';
 import BooksContextProvider from './Contexts/BooksContext';
+import MovieContextProvider from './Contexts/MovieContext';
+import Navbar3 from './Components/Navbar/Navbar3';
 
 function App() {
   return (
@@ -22,6 +24,11 @@ function App() {
           </BooksContextProvider>
           
           <ThemeToggle />
+
+          {/* for movie context and components */}
+          <MovieContextProvider>
+            <Navbar3 />
+          </MovieContextProvider>
         </AuthContextProvider>
       </ThemeContextProvider>
     </div>
