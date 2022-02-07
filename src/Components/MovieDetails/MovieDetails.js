@@ -3,10 +3,17 @@ import { MovieContext } from '../../Contexts/MovieContext';
 
 const MovieDetails = (props) => {
     const {movie} = props;
-    const {removeMovie} = useContext(MovieContext);
+    const {dispatch} = useContext(MovieContext);
+
+    const handleRemove = (movieId) => {
+        dispatch({
+            type: 'REMOVE_MOVIE',
+            id: movieId
+        });
+    }
 
     return (
-        <li onClick={()=>removeMovie(movie.id)}>
+        <li onClick={()=>handleRemove(movie.id)}>
             <div className="name">
                 {movie.name}
             </div>

@@ -5,6 +5,8 @@ import MovieDetails from '../MovieDetails/MovieDetails';
 const MovieList = () => {
     const {movies} = useContext(MovieContext);
 
+    console.log('movies: ', movies);
+
     return (
         <>
             {

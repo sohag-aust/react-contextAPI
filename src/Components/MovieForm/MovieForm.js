@@ -2,7 +2,7 @@ import React, {useContext, useState} from 'react';
 import { MovieContext } from '../../Contexts/MovieContext';
 
 const NewMovieForm = () => {
-    const {movies, addMovie} = useContext(MovieContext);
+    const {movies, dispatch} = useContext(MovieContext);
     const [movieName, setMovieName] = useState('');
     const [directorName, setDirectorName] = useState('');
 
@@ -10,7 +10,14 @@ const NewMovieForm = () => {
         e.preventDefault();
         console.log(movieName, directorName);
 
-        addMovie(movieName, directorName);
+        dispatch({
+            type: 'ADD_MOVIE',
+            movie: {
+                name: movieName,
+                director: directorName
+            }
+        });
+
         setMovieName('');
         setDirectorName('');
     }
