@@ -7,6 +7,7 @@ import AuthContextProvider from './Contexts/AuthContext';
 import BooksContextProvider from './Contexts/BooksContext';
 import MovieContextProvider from './Contexts/MovieContext';
 import Navbar3 from './Components/Navbar/Navbar3';
+import MovieList from './Components/MovieList/MovieList';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           {/* for movie context and components */}
           <MovieContextProvider>
             <Navbar3 />
+            <MovieList />
           </MovieContextProvider>
         </AuthContextProvider>
       </ThemeContextProvider>
